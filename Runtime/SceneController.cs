@@ -12,21 +12,11 @@ namespace Studious.Singleton
     #endif
     public static class SceneController 
     {
+
         static SceneController()
         {
             Application.quitting += OnApplicationQuit;
             SceneManager.sceneLoaded += OnSceneLoaded;
-            //SceneManager.sceneUnloaded += OnSceneUnLoaded;
-        }
-
-        private static void OnSceneUnLoaded(Scene scene)
-        {
-            //var scripts = SingletonInitialisation.SingletonScripts.Where(x => x.ScriptScene == scene.name);
-
-            //foreach (var script in scripts)
-            //{
-            //    Debug.Log($"Scene to unload on : {script.ScriptUnloadScene}");
-            //}
         }
 
         private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)

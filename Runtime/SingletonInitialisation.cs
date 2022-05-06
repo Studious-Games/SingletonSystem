@@ -10,12 +10,10 @@ namespace Studious.Singleton
     public class SingletonInitialisation
     {
         public static List<ScriptInstance> SingletonScripts = new List<ScriptInstance>();
-        private static string _loadingScene;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void OnEnterPlayMode()
         {
-            _loadingScene = SceneManager.GetActiveScene().name;
             InstantiateSingletons();
         }
 

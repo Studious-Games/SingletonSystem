@@ -70,3 +70,9 @@ When using a non persistent Singleton, this will tell the system on which scene 
 The system also has the ability to use the normal Unity HideFlags for the objects, this means you can hide the created game object if you so desire. For more information you can read up more about these flags in the following link
 
 [Unity HideFags Documentation](https://docs.unity3d.com/ScriptReference/HideFlags.html)
+
+## Caveat
+
+Due to the way scenes are loaded, if you need to access a singleton, you will need to do so in the Start() event and not the Awake(). In the future this can be changed once Unity allowes the Ability to subscribe to Before Scene Loading, as it stands Unity only allow for subscribing to when a scene has loaded.
+
+If you have written you own, SceneManager that can fire Before Scene Loaded events then you should be safe to use the Singletons created in the Awake() event.

@@ -4,13 +4,16 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Cronus.Singleton
+namespace Studious.Singleton
 {
     public class SingletonInitialisation
     {
         private static List<Type> _singletons = new List<Type>();
         private static string _loadingScene;
 
+        //---------------------------------------------------------------------------------
+        //
+        //---------------------------------------------------------------------------------
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void OnEnterPlayMode()
         {
@@ -18,6 +21,9 @@ namespace Cronus.Singleton
             InstantiateSingletons();
         }
 
+        //---------------------------------------------------------------------------------
+        //
+        //---------------------------------------------------------------------------------
         private static void InstantiateSingletons()
         {
             foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())

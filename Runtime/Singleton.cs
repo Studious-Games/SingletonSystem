@@ -4,7 +4,7 @@ using UnityEngine;
 
 using UnityObject = UnityEngine.Object;
 
-namespace Cronus.Singleton
+namespace Studious.Singleton
 {
 
     public static class Singleton<T> where T : MonoBehaviour

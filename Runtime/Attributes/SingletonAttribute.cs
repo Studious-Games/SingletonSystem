@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Cronus.Singleton
+namespace Studious.Singleton
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
     public sealed class SingletonAttribute : Attribute

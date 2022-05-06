@@ -65,6 +65,10 @@ This will be used to define if the Singleton will be persistent, at this present
 
 When using a non persistent Singleton, this will tell the system on which scene it needs to be loaded. If this is not added, and you create a non persistent Singleton, it will not get loaded.
 
+###### **SceneUnload**
+
+Allows for the ability to Unload a persistent Singleton, while this is a neat little feature, it does come with a caveat that if any of the data it contains is needed, then you should not use this. It has been added for thos who would like the abilty to have a quick and neat way to start fresh, possible uses could be at a main menu before saved data is loaded. If you find that information is being removed, I would suggest looking at this being the cause first.
+
 ###### **HideFlags**
 
 The system also has the ability to use the normal Unity HideFlags for the objects, this means you can hide the created game object if you so desire. For more information you can read up more about these flags in the following link

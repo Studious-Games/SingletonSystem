@@ -7,7 +7,7 @@
 
 Studious Singleton System is best installed as a package, this can be done in a number of ways, the best is to use git and install via the package manage.
 
-###### Via Git Hub 
+###### **Via Git Hub** 
 
 We highly recommend installing it this way, if you have git installed on your machine, then you can simply go to main page of this repository and select the code button. Then copy the HTTPS URL using the button next to the URL.
 

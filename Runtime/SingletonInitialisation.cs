@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -41,11 +42,7 @@ namespace Studious.Singleton
                         {
                             if (method.IsStatic == false) continue;
                             if (method.Name != "get_Instance") continue;
-
-                            SingletonAttribute attr= (SingletonAttribute)Attribute.GetCustomAttribute(type, typeof(SingletonAttribute));
-
-                            if(attr.Scene == null || attr.Scene == _loadingScene)
-                                method.Invoke(null, null);
+                            method.Invoke(null, null);
                         }
                     }
                 }

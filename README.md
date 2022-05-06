@@ -57,11 +57,9 @@ This is what we will call the object when the Singleton is loaded, with persiste
 
 This will be used to define if the Singleton will be persistent, at this present time we recommend using the **Scene** parameter to force the non persitent Singleton to load up on that scene. All persistent Singletons will remain persistent through the life of the game, where as non persistent are only alive for that scene.
 
-**Right now non persistent** is buggy.
-
 ###### **Scene**
 
-Currently not implemented
+When using a non persistent Singleton, this will tell the system on which scene it needs to be loaded. If this is not added, and you create a non persistent Singleton, it will not get loaded.
 
 ###### **HideFlags**
 

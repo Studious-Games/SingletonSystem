@@ -9,12 +9,9 @@ namespace Studious.Singleton
 {
     public class SingletonInitialisation
     {
-        private static List<Type> _singletons = new List<Type>();
+        public static List<ScriptInstance> SingletonScripts = new List<ScriptInstance>();
         private static string _loadingScene;
 
-        //---------------------------------------------------------------------------------
-        //
-        //---------------------------------------------------------------------------------
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void OnEnterPlayMode()
         {
@@ -22,9 +19,6 @@ namespace Studious.Singleton
             InstantiateSingletons();
         }
 
-        //---------------------------------------------------------------------------------
-        //
-        //---------------------------------------------------------------------------------
         private static void InstantiateSingletons()
         {
             foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
@@ -45,6 +39,12 @@ namespace Studious.Singleton
 
                             SingletonAttribute attr = (SingletonAttribute)Attribute.GetCustomAttribute(type, typeof(SingletonAttribute));
 
+                            if (attr.Persistent == false)
+                            {
+                                ScriptInstance instance = new ScriptInstance(method, attr.Scene);
+                                SingletonScripts.Add(instance);
+                            }
+
                             if (attr.Scene == null || attr.Scene == _loadingScene)
                             {
                                 method.Invoke(null, null);
@@ -53,6 +53,18 @@ namespace Studious.Singleton
                     }
                 }
             }
+        }
+    }
+
+    public class ScriptInstance
+    {
+        public MethodInfo ScriptType;
+        public string ScriptScene;
+
+        public ScriptInstance(MemberInfo scriptType, string scriptName)
+        {
+            ScriptType = (MethodInfo)scriptType;
+            ScriptScene = scriptName;
         }
     }
 }

@@ -1,6 +1,7 @@
 
 # Studious Singleton System
  
+ Is a small very simple library, that helps create singletons with ease. From creating persistent Singletons to single usage ones, this library helps make it simple for everyone to get up and running with very little effort.
 
 
 ## Installation

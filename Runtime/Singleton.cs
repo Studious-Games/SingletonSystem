@@ -145,7 +145,6 @@ namespace Studious.Singleton
             }
 
             _instance = instance;
-
             _awoken.Add(instance);
         }
 

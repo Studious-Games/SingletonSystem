@@ -1,5 +1,5 @@
 using UnityEngine;
-using Cronus.Singleton;
+using Studious.Singleton;
 
 [Singleton(Name = "Singleton UnitTest", Persistent = true)]
 public class SampleSingleton : MonoBehaviour

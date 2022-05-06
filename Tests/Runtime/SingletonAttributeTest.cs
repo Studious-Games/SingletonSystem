@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Cronus.Singleton;
+using Studious.Singleton;
 using NUnit.Framework;
 
 public class SingletonAttributeTest

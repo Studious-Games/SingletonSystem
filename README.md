@@ -1,7 +1,7 @@
 
 # Studious Singleton System
  
- Is a small very simple library, that helps create singletons with ease. From creating persistent Singletons to single usage ones, this library helps make it simple for everyone to get up and running with very little effort.
+ Is a small very simple library, that helps create singletons with ease. From creating persistent Singletons to single usage Singletons, this library helps make it simple for everyone to get up and running with very little effort.
 
 
 ## Installation
@@ -23,3 +23,24 @@ Both are workable solutions, however we would suggest if you would like to use t
 Installing or unzipping into the projects package folder, will work out of the box when you open the project up.
 
 ## Usage
+
+Getting up and running is extremley easy with Studious Singleton System, in the first example we are going to create a Singleton that is persistent when the game first runs.
+
+To do this we create a normal class, and add a standard Instance variable as shown.
+
+```CS
+public class TestSingleton : MonoBehaviour
+{
+    public static TestSingleton Instance => Singleton<TestSingleton>.Instance;
+}
+```
+
+The Insatnce property here is required for the Singleton be loaded at runtime, failure to have this will result in the Singleton not loading.
+
+Once you have this in place it is now just a matter of adding an Attribute, in the next example, we will now make this persistent when the game first runs.
+
+```CS
+[Singleton(Name = "Name Of Object", Persistent = True)]
+```
+
+

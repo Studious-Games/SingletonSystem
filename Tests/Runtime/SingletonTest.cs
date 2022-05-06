@@ -1,7 +1,7 @@
-using Cronus.Singleton;
 using NUnit.Framework;
 using System;
 using UnityEngine;
+using Studious.Singleton;
 
 public class SingletonTest
 {

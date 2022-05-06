@@ -28,6 +28,7 @@ namespace Studious.Singleton
 
         private static void OnApplicationQuit()
         {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
             Application.quitting -= OnApplicationQuit;
         }
 

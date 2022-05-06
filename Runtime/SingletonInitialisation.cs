@@ -42,7 +42,13 @@ namespace Studious.Singleton
                         {
                             if (method.IsStatic == false) continue;
                             if (method.Name != "get_Instance") continue;
-                            method.Invoke(null, null);
+
+                            SingletonAttribute attr = (SingletonAttribute)Attribute.GetCustomAttribute(type, typeof(SingletonAttribute));
+
+                            if (attr.Scene == null || attr.Scene == _loadingScene)
+                            {
+                                method.Invoke(null, null);
+                            }
                         }
                     }
                 }

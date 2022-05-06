@@ -3,6 +3,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using Object = UnityEngine.Object;
+
 namespace Studious.Singleton
 {
     #if UNITY_EDITOR
@@ -14,11 +16,39 @@ namespace Studious.Singleton
         {
             Application.quitting += OnApplicationQuit;
             SceneManager.sceneLoaded += OnSceneLoaded;
+            //SceneManager.sceneUnloaded += OnSceneUnLoaded;
+        }
+
+        private static void OnSceneUnLoaded(Scene scene)
+        {
+            //var scripts = SingletonInitialisation.SingletonScripts.Where(x => x.ScriptScene == scene.name);
+
+            //foreach (var script in scripts)
+            //{
+            //    Debug.Log($"Scene to unload on : {script.ScriptUnloadScene}");
+            //}
         }
 
         private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            var scripts = SingletonInitialisation.SingletonScripts.Where(x=> x.ScriptScene == scene.name);
+            LoadSingletons(scene);
+            UnLoadSingletons(scene);
+        }
+
+        private static void UnLoadSingletons(Scene scene)
+        {
+            var scripts = SingletonInitialisation.SingletonScripts.Where(x => x.SingletonAttribute.SceneUnload == scene.name && x.SingletonAttribute.Persistent == true);
+
+            foreach (var script in scripts)
+            {
+                var test = GameObject.Find(script.SingletonAttribute.Name);
+                Object.Destroy(test);
+            }
+        }
+
+        private static void LoadSingletons(Scene scene)
+        {
+            var scripts = SingletonInitialisation.SingletonScripts.Where(x => x.SingletonAttribute.Scene == scene.name );
 
             foreach (var script in scripts)
             {

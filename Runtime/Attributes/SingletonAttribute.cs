@@ -16,5 +16,6 @@ namespace Studious.Singleton
         public HideFlags HideFlags { get; set; }
         public string Name { get; set; }
         public string Scene { get; set; }
+        public string SceneUnload { get; set; }
     }
 }

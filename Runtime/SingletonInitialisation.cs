@@ -39,13 +39,13 @@ namespace Studious.Singleton
 
                             SingletonAttribute attr = (SingletonAttribute)Attribute.GetCustomAttribute(type, typeof(SingletonAttribute));
 
-                            if (attr.Persistent == false)
+                            if ((attr.Scene != null || attr.Scene == ""))
                             {
-                                ScriptInstance instance = new ScriptInstance(method, attr.Scene);
+                                ScriptInstance instance = new ScriptInstance(method, attr);
                                 SingletonScripts.Add(instance);
                             }
 
-                            if (attr.Scene == null || attr.Scene == _loadingScene)
+                            if (attr.Scene == null)
                             {
                                 method.Invoke(null, null);
                             }
@@ -59,12 +59,12 @@ namespace Studious.Singleton
     public class ScriptInstance
     {
         public MethodInfo ScriptType;
-        public string ScriptScene;
+        public SingletonAttribute SingletonAttribute;
 
-        public ScriptInstance(MemberInfo scriptType, string scriptName)
+        public ScriptInstance(MemberInfo scriptType, SingletonAttribute singletonAttribute)
         {
             ScriptType = (MethodInfo)scriptType;
-            ScriptScene = scriptName;
+            SingletonAttribute = singletonAttribute;
         }
     }
 }

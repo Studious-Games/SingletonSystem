@@ -1,13 +1,14 @@
 {
   "name": "com.studious.singletonsystem",
   "displayName": "Studious Singleton System",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "unity": "2020.3",
   "unityRelease": "0f1",
   "description": "A small Library that helps setup Singletons quickly and easily.",
   "keywords": [
     "unity"
   ],
+  "DocumentationUrl" : "https://github.com/Studious-Games/SingletonSystem/blob/master/README.md",
   "hideInEditor": false,
   "author": {
     "name": "Studious Games"

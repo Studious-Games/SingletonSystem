@@ -15,5 +15,6 @@ namespace Cronus.Singleton
         public readonly bool Automatic = true;
         public HideFlags HideFlags { get; set; }
         public string Name { get; set; }
+        public string Scene { get; set; }
     }
 }

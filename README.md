@@ -13,4 +13,12 @@ We highly recommend installing it this way, if you have git installed on your ma
 
 You can then open up the Package Manager within the Unity Editor, and select the drop down on the plus icon along the top left of the Package Manager. You can then select add by Git and paste the URL from the GitHub repository here.
 
+###### **Add Package from Disk** 
+
+There are two ways to do this, one would be to unzip the download to an area on your harddrive, and another would be to unzip the download into the actual project in the packages folder.
+
+Both are workable solutions, however we would suggest if you would like to use this for multiple projects, that you install somewhere on your harddrive that you will remember. And then use the Package Manager to add the package from Disk.
+
+Installing or unzipping into the projects package folder, will work out of the box when you open the project up.
+
 ## Usage

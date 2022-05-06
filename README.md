@@ -29,6 +29,8 @@ Getting up and running is extremley easy with Studious Singleton System, in the 
 To do this we create a normal class, and add a standard Instance variable as shown.
 
 ```CS
+using Studious.Singleton;
+
 public class TestSingleton : MonoBehaviour
 {
     public static TestSingleton Instance => Singleton<TestSingleton>.Instance;
@@ -40,6 +42,8 @@ The Insatnce property here is required for the Singleton be loaded at runtime, f
 Once you have this in place it is now just a matter of adding an Attribute, in the next example, we will now make this persistent when the game first runs.
 
 ```CS
+using Studious.Singleton;
+
 [Singleton(Name = "Name Of Object", Persistent = True)]
 public class TestSingleton : MonoBehaviour
 {

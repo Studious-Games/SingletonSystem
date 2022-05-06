@@ -39,7 +39,7 @@ namespace Studious.Singleton
 
                             SingletonAttribute attr = (SingletonAttribute)Attribute.GetCustomAttribute(type, typeof(SingletonAttribute));
 
-                            if ((attr.Scene != null || attr.Scene == ""))
+                            if (attr.Persistent == true && (attr.Scene != null || attr.Scene == ""))
                             {
                                 ScriptInstance instance = new ScriptInstance(method, attr);
                                 SingletonScripts.Add(instance);

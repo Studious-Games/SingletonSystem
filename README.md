@@ -67,4 +67,4 @@ Currently not implemented
 
 The system also has the ability to use the normal Unity HideFlags for the objects, this means you can hide the created game object if you so desire. For more information you can read up more about these flags in the following link
 
-[Unity HideFags Documentation (https://docs.unity3d.com/ScriptReference/HideFlags.html)]
+[Unity HideFags Documentation](https://docs.unity3d.com/ScriptReference/HideFlags.html)

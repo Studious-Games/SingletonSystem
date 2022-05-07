@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.0.6] - 2022-06-05
+## [1.0.6] - 2022-06-07
 
 Fixed the following:
 

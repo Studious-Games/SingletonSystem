@@ -1,68 +1,41 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.PlayerLoop;
 
-namespace Studious.Singleton
+namespace Studious.SingletonSystem
 {
-    public class SingletonInitialisation
+    public static class SingletonInitialisation
     {
-        public static List<ScriptInstance> SingletonScripts = new List<ScriptInstance>();
-
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void OnEnterPlayMode()
+        private static void Initialization()
         {
             InstantiateSingletons();
         }
 
         private static void InstantiateSingletons()
         {
-            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+            IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(assembly => assembly.GetTypes().Where(type => type.GetCustomAttributes(typeof(SingletonAttribute), true).Length > 0));
+
+            foreach (var type in types)
             {
-                if (assembly.GetName().Name == "SingletonTests")
-                    continue;
+                IEnumerable<MethodInfo> methods = type.GetMethods().ToList().Where(x => x.IsStatic == true && x.Name == "get_Instance");
 
-                foreach (Type type in assembly.GetTypes())
+                foreach (var method in methods)
                 {
-                    var attribs = type.GetCustomAttributes(typeof(SingletonAttribute), true);
+                    var test = method.Invoke(null, null);
 
-                    if (attribs != null && attribs.Length > 0)
-                    {
-                        foreach (var method in type.GetRuntimeMethods())
-                        {
-                            if (method.IsStatic == false) continue;
-                            if (method.Name != "get_Instance") continue;
+                    SingletonAttribute attr = (SingletonAttribute)Attribute.GetCustomAttribute(type, typeof(SingletonAttribute));
+                    SingletonInstance scriptInstance = new SingletonInstance(method, attr, type, test);
 
-                            SingletonAttribute attr = (SingletonAttribute)Attribute.GetCustomAttribute(type, typeof(SingletonAttribute));
-
-                            if (attr.Persistent == true && (attr.Scene != null || attr.Scene == ""))
-                            {
-                                ScriptInstance instance = new ScriptInstance(method, attr);
-                                SingletonScripts.Add(instance);
-                            }
-
-                            if (attr.Scene == null)
-                            {
-                                method.Invoke(null, null);
-                            }
-                        }
-                    }
+                    SingletonLocator.Register(scriptInstance);
                 }
             }
         }
+
     }
 
-    public class ScriptInstance
-    {
-        public MethodInfo ScriptType;
-        public SingletonAttribute SingletonAttribute;
-
-        public ScriptInstance(MemberInfo scriptType, SingletonAttribute singletonAttribute)
-        {
-            ScriptType = (MethodInfo)scriptType;
-            SingletonAttribute = singletonAttribute;
-        }
-    }
 }

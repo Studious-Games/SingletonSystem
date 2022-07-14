@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Studious.Singleton
+namespace Studious.SingletonSystem
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
     public sealed class SingletonAttribute : Attribute

@@ -4,7 +4,7 @@ using UnityEngine;
 
 using UnityObject = UnityEngine.Object;
 
-namespace Studious.Singleton
+namespace Studious.SingletonSystem
 {
 
     public static class Singleton<T> where T : MonoBehaviour

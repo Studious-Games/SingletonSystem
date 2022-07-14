@@ -1,6 +1,6 @@
 {
     "name": "SingletonSystem",
-    "rootNamespace": "",
+    "rootNamespace": "Studious.SingletonSystem",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

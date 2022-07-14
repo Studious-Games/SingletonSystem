@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 using Object = UnityEngine.Object;
 
-namespace Studious.Singleton
+namespace Studious.SingletonSystem
 {
     #if UNITY_EDITOR
     [InitializeOnLoad]
     #endif
     public static class SceneController 
     {
-
         static SceneController()
         {
             Application.quitting += OnApplicationQuit;
@@ -27,7 +26,7 @@ namespace Studious.Singleton
 
         private static void UnLoadSingletons(Scene scene)
         {
-            var scripts = SingletonInitialisation.SingletonScripts.Where(x => x.SingletonAttribute.SceneUnload == scene.name && x.SingletonAttribute.Persistent == true);
+            var scripts = SingletonLocator.GetAllBySceneUnload(scene).ToList();
 
             foreach (var script in scripts)
             {
@@ -38,7 +37,7 @@ namespace Studious.Singleton
 
         private static void LoadSingletons(Scene scene)
         {
-            var scripts = SingletonInitialisation.SingletonScripts.Where(x => x.SingletonAttribute.Scene == scene.name );
+            var scripts = SingletonLocator.GetAllBySceneLoad(scene).ToList();
 
             foreach (var script in scripts)
             {
@@ -51,6 +50,5 @@ namespace Studious.Singleton
             SceneManager.sceneLoaded -= OnSceneLoaded;
             Application.quitting -= OnApplicationQuit;
         }
-
     }
 }

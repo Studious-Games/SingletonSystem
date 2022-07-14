@@ -1,7 +1,7 @@
 {
   "name": "com.studious.singletonsystem",
   "displayName": "Studious Singleton System",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "unity": "2020.3",
   "unityRelease": "0f1",
   "description": "A small Library that helps setup Singletons quickly and easily.",
@@ -10,8 +10,8 @@
   ],
   "documentationUrl": "https://github.com/Studious-Games/SingletonSystem/blob/master/README.md",
   "changelogUrl": "https://github.com/Studious-Games/SingletonSystem/blob/master/CHANGELOG.md",
-  "licensesUrl" : "https://github.com/Studious-Games/SingletonSystem/blob/master/LICENSE.md",
-  "hideInEditor": true,
+  "licensesUrl": "https://github.com/Studious-Games/SingletonSystem/blob/master/LICENSE.md",
+  "hideInEditor": false,
   "author": {
     "name": "Studious Games"
   },

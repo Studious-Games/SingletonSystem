@@ -44,7 +44,7 @@ Once you have this in place it is now just a matter of adding an Attribute, in t
 ```CS
 using Studious.Singleton;
 
-[Singleton(Name = "Name Of Object", Persistent = True)]
+[Singleton(Name = "Name Of Object", Persistent = true)]
 public class TestSingleton : MonoBehaviour
 {
     public static TestSingleton Instance => Singleton<TestSingleton>.Instance;

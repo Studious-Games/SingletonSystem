@@ -9,7 +9,7 @@ namespace Studious.SingletonSystem
 {
     public static class SingletonLocator
     {
-        private static readonly List<SingletonInstance> _services = new();
+        private static readonly List<SingletonInstance> _services = new List<SingletonInstance>();
 
         public static bool IsRegistered(Type t)
         {

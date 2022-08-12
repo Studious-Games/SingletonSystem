@@ -82,6 +82,7 @@ namespace Studious.SingletonSystem
                 if (instances.Length == 1)
                 {
                     _instance = instances[0];
+                    UnityObject.DontDestroyOnLoad(_instance);
                 }
                 else if (instances.Length == 0)
                 {

@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.1] - 2022-07-14
+
+Fixed an issue where a singleton was attached to a GameObject, and it would not persist to another scene.
+
+
 ## [1.1.0] - 2022-07-14
 
 Fixed an issue with non persistent classes.

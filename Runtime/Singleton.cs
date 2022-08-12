@@ -82,6 +82,10 @@ namespace Studious.SingletonSystem
                 if (instances.Length == 1)
                 {
                     _instance = instances[0];
+                    _instance.gameObject.hideFlags = _hideFlags;
+                    _instance.name = _name ?? typeof(T).Name;
+
+
                     UnityObject.DontDestroyOnLoad(_instance);
                 }
                 else if (instances.Length == 0)

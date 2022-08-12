@@ -7,6 +7,8 @@ Fixed an issue with non persistent classes.
 Added the ability to use a Locator rather than the static field to retrieve the class instance. In the future it would be good to find a way
 to remove the need for using a static instance field to define the Singleton.
 
+Changed the namespace from Studios.Singleton to Studios.SingletonSystem, please be aware that this has changed, and remember to make the necessary changes.
+
 ## [1.0.6] - 2022-06-07
 
 Fixed the following:

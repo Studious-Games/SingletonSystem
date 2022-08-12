@@ -2,7 +2,7 @@
 
 ## [1.1.1] - 2022-07-14
 
-Fixed an issue where a singleton was attached to a GameObject, and it would not persist to another scene.
+Fixed an issue where a singleton was attached to a GameObject, and it would not persist to another scene. This forces the system work like normal, meaning it persists the GameObject it is attached to. If there are other scripts attached to this GameObject, you will need to decide if you need them persisted as well.
 
 
 ## [1.1.0] - 2022-07-14
